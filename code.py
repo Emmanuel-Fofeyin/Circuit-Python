@@ -8,14 +8,18 @@ import ugame
 import stage
 
 def game_scene():
-   # his function is the main game game_scene
+    # this function is the main game game_scene
 
-   print("\n\n\n") # 3 blank lines
-   print("Hello, World!")
+    image_bank_background = stage.Bank.from_bmp16("space_aliens_background.bmp")
+    background = stage.Grid(image_bank_background, 10, 8)
 
-   # respect forever, game loop
-   while True:
-       pass # just a place holder for now
+    game = stage.Stage(ugame.display, 60)
+    game.layers = [background]
+    game.render_block()
+
+    while True:
+        pass # just a placeholder for now
+
 
 if __name__ == "__main__":
-   game_scene()
+    game_scene()
