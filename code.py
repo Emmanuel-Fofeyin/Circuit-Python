@@ -118,6 +118,12 @@ def game_scene():
     # for score
     score = 0
 
+    score_text = stage.Text(width=29, height=12)
+    score_text.clear()
+    score_text.cursor(0, 0)
+    score_text.move(1, 1)
+    score_text.text("Score: {0}".format(score))
+
     def show_alien():
         # this function take an alien from off screen and moves it on screen
         for alien_number in range(len(aliens)):
@@ -188,7 +194,7 @@ def game_scene():
         lasers.append(a_single_laser)
 
     game = stage.Stage(ugame.display, constants.FPS)
-    game.layers = aliens + lasers + [ship] + [background]
+    game.layers = [score_text] + aliens + lasers + [ship] + [background]
     game.render_block()
 
     while True:
@@ -262,6 +268,13 @@ def game_scene():
                         constants.OFF_SCREEN_Y,
                     )
                     show_alien()
+                    score -= 1
+                    if score < 0:
+                        score = 0
+                    score_text.clear()
+                    score_text.cursor(0, 0)
+                    score_text.move(1, 1)
+                    score_text.text("Score: {0}".format(score))
 
         # collisin between alien and laser
         for laser_number in range(len(lasers)):
@@ -287,11 +300,17 @@ def game_scene():
                                 constants.OFF_SCREEN_X,
                                 constants.OFF_SCREEN_Y,
                             )
+                            # add 1 to the score
+                            score += 1
+                            score_text.clear()
+                            score_text.cursor(0, 0)
+                            score_text.move(1, 1)
+                            score_text.text("Score: {0}".format(score))
                             sound.stop()
                             sound.play(boom_sound)
                             show_alien()
                             show_alien()
-                            score += 1
+                            score = score + 1
 
         # redraw Sprites
         game.render_sprites(aliens + lasers + [ship])
