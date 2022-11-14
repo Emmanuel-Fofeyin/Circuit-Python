@@ -1,8 +1,8 @@
-#!/usr/bin/env python3
+#!/user/bin/env python3
 
-# Created by Emmanuel Fofeyin
+# Created by: Emmanuel Fofeyin
 # Created on: Oct 2022
-# This constants file is for space Alien game
+# This constants file is for Space Alien game
 
 # PyBadge screen size is 160x128 and sprites are 16x16
 SCREEN_X = 160
@@ -30,8 +30,18 @@ button_state = {
     "button_released": "released",
 }
 
-# new pallet for red filled text
+# palettes
+WHITE_BLACK_PALETTE = (
+    b"\xf8\x1f\x00\x00\xcey\xff\xff\xf8\x1f\x00\x19\xfc\xe0\xfd\xe0"
+    b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
+
+)
 RED_PALETTE = (
+    b"\xff\xff\x00\x00\xcey\x66\xff\xff\xff\xff\xff\xff\xff\xfd\xe0"
+    b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
+)
+
+BLUE_PALETTE = (
     b"\xff\xff\x00\x22\xcey\x22\xff\xff\xff\xff\xff\xff\xff\xff\xff"
     b"\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff"
 )
